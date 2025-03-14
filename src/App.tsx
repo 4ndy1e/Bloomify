@@ -4,6 +4,7 @@ import homeVideo from "./assets/homeVideo.mp4";
 import { Button, HStack } from "@chakra-ui/react";
 import { LuShoppingCart } from "react-icons/lu";
 import { useEffect, useState } from "react";
+import CardImage from "./components/CardImage";
 
 function App() {
   const [time, setTime] = useState(0);
@@ -13,10 +14,14 @@ function App() {
       setTime((time) => time + 1);
     }, 1000);
 
+    if (time >= 6) {
+      setTime(0);
+    }
+
     return () => {
       clearInterval(key);
     };
-  }, []);
+  }, [time]);
 
   return (
     <section className="relative">
@@ -28,7 +33,7 @@ function App() {
       </video>
 
       {/* section for information */}
-      <section className="absolute top-[15%] w-full h-[3000px] rounded-t-4xl">
+      <section className="absolute top-[15%] w-full h-[6000px] rounded-t-4xl">
         {/* top information overlaying video */}
         <div className="homeMargin flex flex-col gap-8">
           <h1 className="titleSpacing">
@@ -58,7 +63,7 @@ function App() {
         {/* page info starts */}
         <div className="bg-white w-full rounded-t-3xl homePadding">
           <div className="flex flex-col gap-4">
-            <p className="text-black"> {time} seconds have passed </p>
+            {/* <p className="text-black"> {time} seconds have passed </p> */}
             <h3 className="text-black">
               {" "}
               Plants benefit the environment in numerous ways.{" "}
@@ -67,6 +72,51 @@ function App() {
               Improve Air Quality. Prevent Soil Erosion. Combat Climate Change.
               Enhance Water Quality. Support Biodiversity
             </h3>
+
+            {/* image section */}
+            <div className="flex gap-4 imageMargin">
+              <div className="bg-green-300 h-50 w-1/5 rounded-2xl"> </div>
+              <div className="bg-green-400 h-50 w-2/5 rounded-2xl"> </div>
+              <div className="bg-green-500 h-50 w-2/5 rounded-2xl"> </div>
+            </div>
+
+            <section className="sectionMargin">
+              <div className="flex justify-between">
+                <h3 className="text-black">
+                  {" "}
+                  Bring nature home <br />- discover your perfect plant today
+                </h3>
+                <p className="text-black text-right">
+                  {" "}
+                  hundreds of plants to choose from <br /> of all shapes, sizes,
+                  and colors
+                </p>
+              </div>
+              <div className="flex justify-between imageMargin">
+                <CardImage
+                  name="Indoor Plants"
+                  description="Plants suited for low light and controlled environments. Examples: Snake Plant, Peace Lily, Spider Plant, Monstera."
+                />
+                <CardImage
+                  name="Outdoor Plants"
+                  description="Hardy plants that thrive in open spaces. Examples: Bird of Paradise, Jade Plant, Cat Palm, English Ivy."
+                />
+                <CardImage
+                  name="Succlents/Cacti"
+                  description="Water-storing plants ideal for dry conditions. Examples: Echeveria, Jade Plant."
+                />
+              </div>
+              <div className="flex justify-center">
+                <Button
+                  colorPalette="gray"
+                  variant="surface"
+                  size="xl"
+                  rounded="full"
+                >
+                  Pick a plant that fits
+                </Button>
+              </div>
+            </section>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 body {
-  background-color: rgb(2 9 10 / var(--tw-bg-opacity));
+  @apply bg-white;
 }
 
 @theme {
@@ -26,6 +26,10 @@ h3 {
   @apply text-5xl;
 }
 
+h4 {
+  @apply text-3xl;
+}
+
 .homeMargin {
   @apply m-24;
 }
@@ -36,4 +40,12 @@ h3 {
 
 .buttonText {
   @apply text-xl;
+}
+
+.imageMargin {
+  @apply my-12;
+}
+
+.sectionMargin {
+  @apply my-24;
 }

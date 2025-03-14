@@ -10,7 +10,7 @@ function Navbar() {
   };
 
   return (
-    <header className="navbar sticky top-0 w-full">
+    <header className="navbar fixed top-0 w-full">
       <div className="navbar-container">
         <div className="logo">
           <a href="/">
