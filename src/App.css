@@ -1,1 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+
+body {
+  background-color: rgb(2 9 10 / var(--tw-bg-opacity));
+}
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --color-midnight: #02090a;
+}
+
+h1 {
+  @apply text-6xl font-roboto;
+}
+
+.titleSpacing {
+  @apply mb-12;
+}
+
+h2 {
+  @apply text-2xl font-roboto;
+}
+
+h3 {
+  @apply text-5xl;
+}
+
+.homeMargin {
+  @apply m-24;
+}
+
+.homePadding {
+  @apply p-24;
+}
+
+.buttonText {
+  @apply text-xl;
+}
