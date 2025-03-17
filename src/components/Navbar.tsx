@@ -24,10 +24,10 @@ function Navbar() {
             Home
           </a>
           <a href="/about" className="nav-link">
-            About
+            Shop
           </a>
           <a href="/contact" className="nav-link">
-            Contact Us
+            About
           </a>
           <a href="/why-plants" className="nav-link">
             Why Plants?

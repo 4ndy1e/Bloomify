@@ -92,7 +92,7 @@ function App() {
                   and colors
                 </p>
               </div>
-              <div className="flex justify-between imageMargin">
+              <div className="flex gap-8 justify-center imageMargin">
                 <CardImage
                   name="Indoor Plants"
                   description="Plants suited for low light and controlled environments. Examples: Snake Plant, Peace Lily, Spider Plant, Monstera."
@@ -118,7 +118,21 @@ function App() {
               </div>
             </section>
           </div>
+
+          <div>
+            <h3 className="text-black"> Connect with Nature </h3>
+            <section className="imageMargin flex flex-col gap-8">
+              <div className="w-full bg-green-900 h-[500px] rounded-2xl"> </div>
+              <div className="flex gap-8">
+                <div className="w-1/3 bg-green-500 h-50 rounded-2xl"></div>
+                <div className="w-1/3 bg-green-400 h-50 rounded-2xl"></div>
+                <div className="w-1/3 bg-green-300 h-50 rounded-2xl"></div>
+              </div>
+            </section>
+          </div>
         </div>
+
+        {/* Connect with nature */}
       </section>
     </section>
   );
