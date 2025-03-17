@@ -3,25 +3,22 @@ import Navbar from "./components/Navbar";
 import homeVideo from "./assets/homeVideo.mp4";
 import { Button, HStack } from "@chakra-ui/react";
 import { LuShoppingCart } from "react-icons/lu";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CardImage from "./components/CardImage";
 
 function App() {
-  const [time, setTime] = useState(0);
-
   useEffect(() => {
-    const key = setInterval(() => {
-      setTime((time) => time + 1);
-    }, 1000);
-
-    if (time >= 6) {
-      setTime(0);
-    }
-
-    return () => {
-      clearInterval(key);
-    };
-  }, [time]);
+    const key = import.meta.env.VITE_API_KEY;
+    fetch(`https://perenual.com/api/v2/species-list?key=${key}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Error status: {response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <section className="relative">
