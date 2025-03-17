@@ -9,7 +9,7 @@ import CardImage from "./components/CardImage";
 function App() {
   useEffect(() => {
     const key = import.meta.env.VITE_API_KEY;
-    fetch(`https://perenual.com/api/v2/species-list?key=${key}`)
+    fetch(`https://perenual.com/api/v2/species-list?key=${key}&indoor=1`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error status: {response.status}`);
