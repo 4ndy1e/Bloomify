@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,10 +24,10 @@ function Navbar() {
           <a href="/" className="nav-link">
             Home
           </a>
-          <a href="/about" className="nav-link">
+          <a href="/shop" className="nav-link">
             Shop
           </a>
-          <a href="/contact" className="nav-link">
+          <a href="/about" className="nav-link">
             About
           </a>
           <a href="/why-plants" className="nav-link">
@@ -50,18 +51,18 @@ function Navbar() {
 
       {/* Mobile Navigation */}
       <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
-        <a href="/" className="mobile-link" onClick={toggleMenu}>
+        <Link to="/" className="mobile-link" onClick={toggleMenu}>
           Home
-        </a>
-        <a href="/about" className="mobile-link" onClick={toggleMenu}>
+        </Link>
+        <Link to="/about" className="mobile-link" onClick={toggleMenu}>
           About
-        </a>
-        <a href="/contact" className="mobile-link" onClick={toggleMenu}>
+        </Link>
+        <Link to="/contact" className="mobile-link" onClick={toggleMenu}>
           Contact Us
-        </a>
-        <a href="/why-plants" className="mobile-link" onClick={toggleMenu}>
+        </Link>
+        <Link to="/why-plants" className="mobile-link" onClick={toggleMenu}>
           Why Plants?
-        </a>
+        </Link>
       </div>
     </header>
   );
