@@ -49,3 +49,7 @@ h4 {
 .sectionMargin {
   @apply my-24;
 }
+
+.plantCardMargin {
+  @apply m-5;
+}

@@ -7,14 +7,17 @@ import { useState, useEffect } from "react";
 function Shop() {
   interface Plant {
     common_name: string;
-    // add other properties if needed
+    id: number;
+    default_image: {
+      original_url: string;
+    };
   }
 
   const [plants, setPlants] = useState<Plant[]>([]);
 
   useEffect(() => {
     const key = import.meta.env.VITE_API_KEY;
-    fetch(`https://perenual.com/api/v2/species-list?key=${key}&indoor=1`)
+    fetch(`https://perenual.com/api/v2/species-list?key=${key}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error status: {response.status}`);
@@ -29,6 +32,7 @@ function Shop() {
   }, []);
 
   console.log(plants);
+  // console.log(plants[0].id);
 
   return (
     <section className="relative">
@@ -53,10 +57,22 @@ function Shop() {
           </div>
 
           {/* plant cards */}
-          <section className="flex flex-wrap">
-            {plants.map((plant) => (
-              <PlantCard name={plant.common_name} />
-            ))}
+          <section className="flex flex-wrap gap-8 sectionMargin">
+            {plants.map((plant) =>
+              plant.default_image ? (
+                <PlantCard
+                  name={plant.common_name}
+                  image={plant.default_image.original_url}
+                />
+              ) : (
+                <PlantCard
+                  name={plant.common_name}
+                  image={
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRorjiu6kdoDf87VefRm_EPhAHK0ZpXUAq3Ew&s"
+                  }
+                />
+              )
+            )}
           </section>
         </div>
       </section>

@@ -2,14 +2,16 @@ import { Button, Card, Image, Text } from "@chakra-ui/react";
 
 interface info {
   name: string;
+  image: string;
 }
 
-const PlantCard = ({ name }: info) => {
+const PlantCard = ({ name, image }: info) => {
   return (
     <Card.Root overflow="hidden" className="bg-white w-[300px]">
       <Image
-        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+        src={image}
         alt="Green double couch with wooden legs"
+        className="w-full aspect-square"
       />
       <Card.Body gap="2" className="bg-white">
         <h2 className="text-black"> {name} </h2>
