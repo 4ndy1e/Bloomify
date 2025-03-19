@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 function Shop() {
   interface Plant {
     common_name: string;
+    scientific_name: string[];
     id: number;
     default_image: {
       original_url: string;
@@ -17,7 +18,7 @@ function Shop() {
 
   useEffect(() => {
     const key = import.meta.env.VITE_API_KEY;
-    fetch(`https://perenual.com/api/v2/species-list?key=${key}`)
+    fetch(`https://perenual.com/api/v2/species-list?key=${key}&indoor=1`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error status: {response.status}`);
@@ -58,21 +59,22 @@ function Shop() {
 
           {/* plant cards */}
           <section className="flex flex-wrap gap-8 sectionMargin">
-            {plants.map((plant) =>
-              plant.default_image ? (
-                <PlantCard
-                  name={plant.common_name}
-                  image={plant.default_image.original_url}
-                />
-              ) : (
-                <PlantCard
-                  name={plant.common_name}
-                  image={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRorjiu6kdoDf87VefRm_EPhAHK0ZpXUAq3Ew&s"
-                  }
-                />
-              )
-            )}
+            {plants.map((plant) => (
+              <PlantCard
+                key={plant.common_name}
+                name={plant.common_name}
+                image={
+                  plant.default_image
+                    ? plant.default_image.original_url
+                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRorjiu6kdoDf87VefRm_EPhAHK0ZpXUAq3Ew&s"
+                }
+                scienctific_name={
+                  plant.scientific_name && plant.scientific_name.length >= 1
+                    ? plant.scientific_name[0]
+                    : "Unknown"
+                }
+              />
+            ))}
           </section>
         </div>
       </section>

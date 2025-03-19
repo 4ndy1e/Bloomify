@@ -3,9 +3,10 @@ import { Button, Card, Image, Text } from "@chakra-ui/react";
 interface info {
   name: string;
   image: string;
+  scienctific_name: string;
 }
 
-const PlantCard = ({ name, image }: info) => {
+const PlantCard = ({ name, image, scienctific_name }: info) => {
   return (
     <Card.Root overflow="hidden" className="bg-white w-[300px]">
       <Image
@@ -15,7 +16,7 @@ const PlantCard = ({ name, image }: info) => {
       />
       <Card.Body gap="2" className="bg-white">
         <h2 className="text-black"> {name} </h2>
-        <Card.Description>Indoor</Card.Description>
+        <Card.Description>{scienctific_name}</Card.Description>
         <Text
           textStyle="2xl"
           fontWeight="medium"
